@@ -1,9 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  key: MyString
-  screen_name: MyString
-
-two:
-  key: MyString
-  screen_name: MyString
+---
+bbs_boards_001:
+  id: 1
+  key: test
+  screen_name: テスト
+  created_at: 2013-07-08 10:54:29.000000000 Z
+  updated_at: 2013-07-08 10:54:29.000000000 Z
+bbs_boards_002:
+  id: 3
+  key: sports
+  screen_name: スポーツ
+  created_at: 2013-07-08 11:13:57.000000000 Z
+  updated_at: 2013-07-08 11:13:57.000000000 Z

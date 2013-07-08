@@ -1,13 +1,57 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  key: MyString
-  name: MyString
-  mail: MyString
-  info: MyString
-
-two:
-  key: MyString
-  name: MyString
-  mail: MyString
-  info: MyString
+---
+bbs_responses_001:
+  id: 1
+  name: てすと太郎
+  mail: ''
+  info: ''
+  body: 書き込みテスト
+  created_at: 2013-07-08 10:55:37.000000000 Z
+  updated_at: 2013-07-08 10:55:37.000000000 Z
+bbs_responses_002:
+  id: 2
+  name: てすと次郎
+  mail: ''
+  info: ''
+  body: てすてす
+  created_at: 2013-07-08 10:55:57.000000000 Z
+  updated_at: 2013-07-08 10:55:57.000000000 Z
+bbs_responses_003:
+  id: 3
+  name: てすと三郎
+  mail: ''
+  info: ''
+  body: かきこみてすと
+  created_at: 2013-07-08 10:56:15.000000000 Z
+  updated_at: 2013-07-08 10:56:15.000000000 Z
+bbs_responses_004:
+  id: 4
+  name: てすと四郎
+  mail: ''
+  info: ''
+  body: ほげほげ
+  created_at: 2013-07-08 10:56:35.000000000 Z
+  updated_at: 2013-07-08 10:56:35.000000000 Z
+bbs_responses_005:
+  id: 5
+  name: ほげ太郎
+  mail: hoge@hogehoge
+  info: ''
+  body: ほげっす
+  created_at: 2013-07-08 11:09:52.000000000 Z
+  updated_at: 2013-07-08 11:09:52.000000000 Z
+bbs_responses_006:
+  id: 6
+  name: スポーツ刈り
+  mail: ''
+  info: ''
+  body: ベースボール
+  created_at: 2013-07-08 11:16:02.000000000 Z
+  updated_at: 2013-07-08 11:16:02.000000000 Z
+bbs_responses_007:
+  id: 7
+  name: ロン毛
+  mail: ''
+  info: ''
+  body: 球蹴り
+  created_at: 2013-07-08 11:16:28.000000000 Z
+  updated_at: 2013-07-08 11:16:28.000000000 Z
