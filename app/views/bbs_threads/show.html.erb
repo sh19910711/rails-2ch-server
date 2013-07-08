@@ -1,7 +1,18 @@
 <div class="container-fluid">
 
+  <!-- ぱんくず {{{ -->
+  <div class="row-fluid">
+    <ul class="breadcrumb">
+      <li><%= link_to '板一覧', board_manager_index_path %> <span class="divider">/</span></li>
+      <li><%= link_to @bbs_thread.bbs_board.screen_name, bbs_board_path(@bbs_thread.bbs_board) %> <span class="divider">/</span></li>
+      <li><%= @bbs_thread.screen_name %></li>
+    </ul>
+  </div>
+  <!-- }}} -->
+
   <!-- 書き込み一覧 {{{ -->
   <div class="row-fluid">
+
     <div class="span12">
       <table class="table table-bordered">
         <thead>
@@ -18,7 +29,7 @@
           <tr>
             <td>
               <div>
-                <%= response.id %>：<%= response.name %> [mail: <%= response.mail %>] <%= response.info %>
+                <%= link_to response.id, bbs_response_path(response) %>：<%= response.name %> [mail: <%= response.mail %>] <%= response.info %>
               </div>
               <div>
                 <%= response.body %>
@@ -29,7 +40,7 @@
                 <%= link_to '編集', edit_bbs_response_path(response) %> /
                 <%= link_to(
                   '削除',
-                  bbs_response_path(
+                  delete_bbs_response_path(
                     :id => response.id,
                     :success_callback_url => url_encode(bbs_thread_path(@bbs_thread)),
                   ),

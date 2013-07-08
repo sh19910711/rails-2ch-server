@@ -1,5 +1,12 @@
 class BbsResponsesController < ApplicationController
   
+  def show
+    @bbs_response = BbsResponse.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def delete
     @bbs_response = BbsResponse.find(params[:id])
     @bbs_response.destroy

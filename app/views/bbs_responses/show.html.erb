@@ -1,0 +1,23 @@
+<div class="container-fluid">
+
+  <!-- ぱんくず {{{ -->
+  <div class="row-fluid">
+    <ul class="breadcrumb">
+      <li><%= link_to '板一覧', board_manager_index_path %> <span class="divider">/</span></li>
+      <li><%= link_to @bbs_response.bbs_thread.bbs_board.screen_name, bbs_board_path(@bbs_response.bbs_thread.bbs_board) %> <span class="divider">/</span></li>
+      <li><%= link_to @bbs_response.bbs_thread.screen_name, bbs_thread_path(@bbs_response.bbs_thread) %> <span class="divider">/</span></li>
+      <li>書き込み No.<%= @bbs_response.id %></li>
+    </ul>
+  </div>
+  <!-- }}} -->
+
+  <div class="row-fluid">
+    <div class="well">
+      <%= @bbs_response.id %>：<%= @bbs_response.name %>[<%= @bbs_response.mail %>] <%= @bbs_response.info %>
+      <div class="container-fluid">
+        <%= @bbs_response.body %>
+      </div>
+    </div>
+  </div>
+
+</div>

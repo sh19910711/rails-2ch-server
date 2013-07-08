@@ -1,5 +1,14 @@
 <div class="container-fluid">
   <div class="row-fluid">
+
+  <!-- ぱんくず {{{ -->
+  <ul class="breadcrumb">
+    <li><%= link_to '板一覧', board_manager_index_path %> <span class="divider">/</span></li>
+    <li><%= link_to @bbs_board.screen_name, bbs_board_path(@bbs_board) %> <span class="divider">/</span></li>
+    <li>編集画面</li>
+  </ul>
+  <!-- }}} -->
+
     <table class="table table-bordered">
       <thead>
         <tr>

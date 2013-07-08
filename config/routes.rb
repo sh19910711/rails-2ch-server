@@ -107,13 +107,18 @@ Rails2chServer::Application.routes.draw do
   resources :bbs_responses, :only => [] do
     member do
       get(
+        '',
+        :action => :show,
+        :as => ''
+      )
+      get(
         'edit',
         :action => :edit,
       )
       delete(
         ':success_callback_url',
         :action => :delete,
-        :as => '',
+        :as => 'delete',
       )
       put(
         '',

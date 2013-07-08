@@ -1,5 +1,12 @@
 <div class="container-fluid">
 
+  <!-- ぱんくず {{{ -->
+  <ul class="breadcrumb">
+    <li><%= link_to '板一覧', board_manager_index_path %> <span class="divider">/</span> </li>
+    <li><%= @bbs_board.screen_name %></li>
+  </ul>
+  <!-- }}} -->
+
   <!-- スレッド一覧 {{{ -->
   <div class="row-fluid">
     <div class="span12">
