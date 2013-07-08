@@ -1,4 +1,7 @@
 Rails2chServer::Application.routes.draw do
+
+  get '', :controller => :bbs_manager, :action => :index
+
   resources :board_manager, :only => [:index]
 
   resource :bbs_boards, :only => [] do
