@@ -62,7 +62,33 @@
   <div class="row-fluid">
     <div class="span6">
       <div class="well">
-        hello
+        <h2>フォームの項目について</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>項目の説明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>名前</td>
+            </tr>
+            <tr>
+              <td>Mail</td>
+              <td>メールアドレス</td>
+            </tr>
+            <tr>
+              <td>Info</td>
+              <td>補足情報</td>
+            </tr>
+            <tr>
+              <td>Body</td>
+              <td>本文</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="span6">
@@ -86,25 +112,25 @@
         ) do |form| %>
           <tr>
             <td>
-              <h3>name</h3>
+              <h3>Name</h3>
               <%= form.text_field :name, :class => 'span12' %>
             </td>
           </tr>
           <tr>
             <td>
-              <h3>mail</h3>
+              <h3>Mail</h3>
               <%= form.text_field :mail, :class => 'span12' %>
             </td>
           </tr>
           <tr>
             <td>
-              <h3>info</h3>
+              <h3>Info</h3>
               <%= form.text_field :info, :class => 'span12' %>
             </td>
           </tr>
           <tr>
             <td>
-              <h3>body</h3>
+              <h3>Body</h3>
               <%= form.text_area :body, :class => 'span12' %>
             </td>
           </tr>
