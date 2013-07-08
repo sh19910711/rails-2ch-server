@@ -1,4 +1,113 @@
 Rails2chServer::Application.routes.draw do
+  resources :board_manager, :only => [:index]
+
+  resource :bbs_boards, :only => [] do
+    member do
+      get(
+        '',
+        :action => :index,
+        :as => '',
+      )
+      post(
+        '',
+        :action => :create,
+        :as => '',
+      )
+      post(
+        'create_thread',
+        :action => :create_thread,
+        :as => 'create_thread',
+      )
+    end
+  end
+
+  resources :bbs_boards, :only => [] do
+    member do
+      get(
+        '',
+        :action => :show,
+        :as => '',
+      )
+      get(
+        'edit',
+        :action => :edit,
+      )
+      delete(
+        '',
+        :action => :delete,
+        :as => '',
+      )
+    end
+  end
+
+  resource :bbs_threads, :only => [] do
+    member do
+      get(
+        '',
+        :action => :index,
+        :as => '',
+      )
+      post(
+        '',
+        :action => :create,
+        :as => '',
+      )
+    end
+  end
+
+  resources :bbs_threads, :only => [] do
+    member do
+      get(
+        '',
+        :action => :show,
+        :as => '',
+      )
+      get(
+        'edit',
+        :action => :edit,
+      )
+      delete(
+        '',
+        :action => :delete,
+        :as => '',
+      )
+      delete(
+        ':return_url',
+        :action => :delete,
+        :as => 'delete',
+      )
+      post(
+        'create_response/:success_callback_url',
+        :action => :create_response,
+        :as => 'create_response',
+      )
+    end
+  end
+
+  resource :bbs_responses, :only => [] do
+    member do
+      get(
+        '',
+        :action => :index,
+        :as => '',
+      )
+    end
+  end
+
+  resources :bbs_responses, :only => [] do
+    member do
+      get(
+        'edit',
+        :action => :edit,
+      )
+      delete(
+        ':success_callback_url',
+        :action => :delete,
+        :as => '',
+      )
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

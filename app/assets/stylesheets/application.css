@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+#bbs_response_body
+{
+  height: 200px;
+}
+
