@@ -1,14 +1,75 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Rails2chServer</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Rails2chServer" %></title>
+    <%= csrf_meta_tags %>
 
-<%= yield %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
 
-</body>
+  </head>
+  <body>
+
+    <div class="navbar navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/board_manager">Rails2chServer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+
+          <!-- メニュー {{{ -->
+          <div class="well sidebar-nav">
+            <h3>Menu</h3>
+            <ul class="nav nav-list">
+              <li><%= link_to 'ホーム', '/' %></li>
+              <li><%= link_to '板の管理', '/board_manager' %></li>
+            </ul>
+          </div><!--/.well -->
+          <!-- }}} -->
+
+          <!-- 新しい書き込み {{{ -->
+          <div class="well sidebar-nav">
+            <h3>新しい書き込み</h3>
+            <% BbsResponse.find(
+              :all,
+              :limit => 5,
+              :order => 'created_at DESC',
+            ).each do |response| %>
+              <hr>
+              <div>
+                <div>
+                  <%= response.name %> さんが
+                  『<%= link_to response.bbs_thread.screen_name, bbs_thread_path(response.bbs_thread) %>』
+                  に書き込みました。
+                </div>
+                <div>
+                  <%= response.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <!-- }}} -->
+
+        </div><!--/span-->
+        <div class="span9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
+
+    </div> <!-- /container -->
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+
+  </body>
 </html>

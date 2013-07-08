@@ -1,0 +1,102 @@
+<div class="container-fluid">
+
+  <!-- ぱんくず {{{ -->
+  <div class="row-fluid">
+    <ul class="breadcrumb">
+      <li>板一覧</li>
+    </ul>
+  </div>
+  <!-- }}} -->
+
+  <div class="row-fluid">
+
+    <!-- 板一覧 {{{ -->
+    <div class="span12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="span8">
+              <h2>板一覧</h2>
+            </th>
+            <th class="span4">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @all_bbs_boards.each do |board| %>
+            <tr>
+              <td><%= link_to board.screen_name, board %></td>
+              <td>
+                <%= link_to '編集', edit_bbs_board_path(board) %>
+                /
+                <%= link_to '削除', board, :method => :delete, data: {
+                  confirm: '削除してもよろしいですか？'
+                } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- }}} -->
+
+  </div>
+
+  <div class="row-fluid">
+    <!-- 項目の説明 {{{ -->
+    <div class="span6">
+      <div class="well">
+        <h2>フォームの項目について</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>項目の説明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Key</td>
+              <td>板のキー, URLで使用します</td>
+            </tr>
+            <tr>
+              <td>Screen Name</td>
+              <td>表示名</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- }}} -->
+
+    <!-- 新しい板を作成する {{{ -->
+    <div class="span6">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              <h2>新しい板を作成する</h2>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= form_for @new_bbs_board do |form| %>
+            <tr>
+              <td>
+                <div>
+                  <h3>Key</h3>
+                  <%= form.text_field :key, :class => 'span12', :placeholder => 'Key' %>
+                </div>
+                <h3>Screen Name</h3>
+                <%= form.text_field :screen_name, :class => 'span12', :placeholder => 'Screen Key' %>
+                <%= form.submit '作成する', :class => 'btn btn-primary span12' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- }}} -->
+
+  </div>
+</div>

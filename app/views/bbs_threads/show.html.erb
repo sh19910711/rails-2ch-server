@@ -1,0 +1,148 @@
+<div class="container-fluid">
+
+  <!-- ぱんくず {{{ -->
+  <div class="row-fluid">
+    <ul class="breadcrumb">
+      <li><%= link_to '板一覧', board_manager_index_path %> <span class="divider">/</span></li>
+      <li><%= link_to @bbs_thread.bbs_board.screen_name, bbs_board_path(@bbs_thread.bbs_board) %> <span class="divider">/</span></li>
+      <li><%= @bbs_thread.screen_name %></li>
+    </ul>
+  </div>
+  <!-- }}} -->
+
+  <!-- 書き込み一覧 {{{ -->
+  <div class="row-fluid">
+
+    <div class="span12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="span8">
+              <h2>書き込み一覧</h2>
+            </th>
+            <th class="span4">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @bbs_thread.bbs_responses.each do |response| %>
+          <tr>
+            <td>
+              <div>
+                <%= link_to response.id, bbs_response_path(response) %>：<%= response.name %> [mail: <%= response.mail %>] <%= response.info %>
+              </div>
+              <div>
+                <%= response.body %>
+              </div>
+            </td>
+            <td>
+              <div>
+                <%= link_to '編集', edit_bbs_response_path(response) %> /
+                <%= link_to(
+                  '削除',
+                  delete_bbs_response_path(
+                    :id => response.id,
+                    :success_callback_url => url_encode(bbs_thread_path(@bbs_thread)),
+                  ),
+                  :method => :delete,
+                  data: {
+                    confirm: '書き込みを削除してもよろしいですか？',
+                  },
+                ) %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- }}} -->
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="well">
+        <h2>フォームの項目について</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>項目の説明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>名前</td>
+            </tr>
+            <tr>
+              <td>Mail</td>
+              <td>メールアドレス</td>
+            </tr>
+            <tr>
+              <td>Info</td>
+              <td>補足情報</td>
+            </tr>
+            <tr>
+              <td>Body</td>
+              <td>本文</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="span6">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              <h2>新規書き込み</h2>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        <%= form_for(
+          @new_bbs_response,
+          :url => create_response_bbs_thread_path(
+            @bbs_thread,
+            {
+              :success_callback_url => url_encode(bbs_thread_path(@bbs_thread))
+            }
+          )
+        ) do |form| %>
+          <tr>
+            <td>
+              <h3>Name</h3>
+              <%= form.text_field :name, :class => 'span12' %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>Mail</h3>
+              <%= form.text_field :mail, :class => 'span12' %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>Info</h3>
+              <%= form.text_field :info, :class => 'span12' %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>Body</h3>
+              <%= form.text_area :body, :class => 'span12' %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= form.submit '書き込む', :class => 'btn btn-primary span12' %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
