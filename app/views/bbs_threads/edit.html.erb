@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            <h3>スレッドの編集</h3>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <%= form_for(@bbs_thread) do |form| %>
+        <%= hidden_field :data, :success_callback_url, :value => bbs_board_path(@bbs_thread.bbs_board) %>
+        <tr>
+          <td>
+            <h3>Screen Name</h3>
+            <%= form.text_field :screen_name, :class => 'span12' %>
+            <%= form.submit '更新する', :class => 'btn btn-primary span12' %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -31,4 +31,17 @@ class BbsThreadsController < ApplicationController
     redirect_to params[:return_url]
   end
 
+  def update
+    @bbs_thread = BbsThread.find(params[:id])
+    @bbs_thread.update_attributes params[:bbs_thread]
+    redirect_to params[:data][:success_callback_url]
+  end
+
+  def edit
+    @bbs_thread = BbsThread.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
+  end
+
 end

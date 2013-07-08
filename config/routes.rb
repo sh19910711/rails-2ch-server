@@ -37,6 +37,11 @@ Rails2chServer::Application.routes.draw do
         :action => :delete,
         :as => '',
       )
+      put(
+        '',
+        :action => :update,
+        :as => ''
+      )
     end
   end
 
@@ -76,6 +81,11 @@ Rails2chServer::Application.routes.draw do
         :action => :delete,
         :as => 'delete',
       )
+      put(
+        '',
+        :action => :update,
+        :as => '',
+      )
       post(
         'create_response/:success_callback_url',
         :action => :create_response,
@@ -103,6 +113,11 @@ Rails2chServer::Application.routes.draw do
       delete(
         ':success_callback_url',
         :action => :delete,
+        :as => '',
+      )
+      put(
+        '',
+        :action => :update,
         :as => '',
       )
     end

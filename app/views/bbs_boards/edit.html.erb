@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>
+            <h3>板の編集</h3>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+      <%= form_for @bbs_board, :method => :put do |form| %>
+        <tr>
+          <td>
+            <h3>Key</h3>
+            <%= form.text_field :key, :class => 'span12' %>
+            <h3>Screen Name</h3>
+            <%= form.text_field :screen_name, :class => 'span12' %>
+            <%= form.submit '更新する', :class => 'btn btn-primary span12' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody> 
+    </table>
+  </div>
+</div>

@@ -18,7 +18,7 @@
           <tr>
             <td>
               <div>
-                <%= response.id %>：<a href="mailto:<%= response.mail %>"><%= response.name %></a> <%= response.info %>
+                <%= response.id %>：<%= response.name %> [mail: <%= response.mail %>] <%= response.info %>
               </div>
               <div>
                 <%= response.body %>

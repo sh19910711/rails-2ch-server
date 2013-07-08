@@ -36,12 +36,21 @@ class BbsBoardsController < ApplicationController
   end
 
   def edit
-    render :text => 'edit'
+    @bbs_board = BbsBoard.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
   end
 
   def delete
     @bbs_board = BbsBoard.find(params[:id])
     @bbs_board.destroy
+    redirect_to board_manager_index_path
+  end
+
+  def update 
+    @bbs_board = BbsBoard.find(params[:id])
+    @bbs_board.update_attributes params[:bbs_board]
     redirect_to board_manager_index_path
   end
 
