@@ -30,7 +30,6 @@ class BbsBoardsController < ApplicationController
   def create_thread
     @bbs_board = BbsBoard.find(params[:bbs_thread][:bbs_board_id])
     @new_bbs_thread = @bbs_board.bbs_threads.create(
-      :key => params[:bbs_thread][:key],
       :screen_name => params[:bbs_thread][:screen_name]
     )
     redirect_to bbs_board_path @bbs_board

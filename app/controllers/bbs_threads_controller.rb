@@ -16,7 +16,6 @@ class BbsThreadsController < ApplicationController
     @bbs_thread = BbsThread.find params[:id]
     
     @bbs_thread.bbs_responses.create(
-      :key => params[:bbs_response][:key],
       :name => params[:bbs_response][:name],
       :mail => params[:bbs_response][:mail],
       :info => params[:bbs_response][:info],
