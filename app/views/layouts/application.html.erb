@@ -28,12 +28,39 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
+
+          <!-- メニュー {{{ -->
           <div class="well sidebar-nav">
+            <h3>Menu</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Menu</li>
               <li><%= link_to "板の管理", "/board_manager"  %></li>
             </ul>
           </div><!--/.well -->
+          <!-- }}} -->
+
+          <!-- 新しい書き込み {{{ -->
+          <div class="well sidebar-nav">
+            <h3>新しい書き込み</h3>
+            <% BbsResponse.find(
+              :all,
+              :limit => 5,
+              :order => 'created_at DESC',
+            ).each do |response| %>
+              <hr>
+              <div>
+                <div>
+                  <%= response.name %> さんが
+                  『<%= link_to response.bbs_thread.screen_name, bbs_thread_path(response.bbs_thread) %>』
+                  に書き込みました。
+                </div>
+                <div>
+                  <%= response.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <!-- }}} -->
+
         </div><!--/span-->
         <div class="span9">
           <%= bootstrap_flash %>

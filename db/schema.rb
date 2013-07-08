@@ -26,13 +26,14 @@ ActiveRecord::Schema.define(:version => 20130708063401) do
   add_index "bbs_board_threads", ["id"], :name => "id_UNIQUE", :unique => true
 
   create_table "bbs_boards", :force => true do |t|
+    t.string   "key",         :limit => 64,  :null => false
     t.string   "screen_name", :limit => 256, :null => false
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
-    t.string   "key"
   end
 
   add_index "bbs_boards", ["id"], :name => "id_UNIQUE", :unique => true
+  add_index "bbs_boards", ["key"], :name => "key_UNIQUE", :unique => true
 
   create_table "bbs_responses", :force => true do |t|
     t.string   "name",       :limit => 256,  :null => false
