@@ -5,3 +5,9 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails2chServer::Application.load_tasks
+
+# Rspec
+require 'rspec/core/rake_task'
+require 'ci/reporter/rake/rspec'
+RSpec::Core::RakeTask.new(:spec)
+
