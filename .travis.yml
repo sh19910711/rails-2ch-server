@@ -8,7 +8,6 @@ before_script:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('${RAILS_2CH_SERVER_DATABASE_PASSWORD}') WHERE user='rails';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE bbsdb;" | mysql -u root
   - echo "CREATE DATABASE bbsdb-test;" | mysql -u root
-bundler_args: --without production
 script:
   - echo ${RAILS_2CH_SERVER_DATABASE_PASSWORD}
   - bundle install
