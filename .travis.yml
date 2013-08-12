@@ -9,7 +9,6 @@ before_script:
   - echo "CREATE DATABASE `bbsdb`;\n" | mysql -u root
   - echo "CREATE DATABASE `bbsdb-test`;\n" | mysql -u root
 bundler_args:
-  - ""
 script:
   - echo ${RAILS_2CH_SERVER_DATABASE_PASSWORD}
   - bundle install
