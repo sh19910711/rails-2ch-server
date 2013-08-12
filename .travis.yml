@@ -1,7 +1,6 @@
 language: ruby
 rvm:
   - 1.9.3
-  - 1.9.2
 before_script:
   - echo "TEST"
   - export RAILS_2CH_SERVER_DATABASE_PASSWORD=`perl -le \'print map \{ ("a".."z", "A".."Z", 0..9)[rand 62] \} 1..253\'`
