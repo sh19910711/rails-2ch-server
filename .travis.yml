@@ -1,5 +1,5 @@
 before_script:
-  - echo "テスト"
+  - echo "TEST"
   - export RAILS_2CH_SERVER_DATABASE_PASSWORD=`perl -le \'print map \{ ("a".."z", "A".."Z", 0..9)[rand 62] \} 1..253\'`
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('${RAILS_2CH_SERVER_DATABASE_PASSWORD}') WHERE user='rails';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE bbsdb;" | mysql -u root
